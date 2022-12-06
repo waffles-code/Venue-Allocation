@@ -1,0 +1,74 @@
+network unknown {
+}
+variable Class {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+variable Class_Type {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+variable Distance {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+variable Num_students {
+    type discrete [ 2 ] { 0, 1 };
+}
+variable Venue {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+variable Venue_Size {
+    type discrete [ 2 ] { 0, 1 };
+}
+variable Venue_Type {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+variable Venues {
+    type discrete [ 3 ] { 0, 1, 2 };
+}
+probability ( Class | Num_students, Class_Type ) {
+    ( 0, 0 ) 0.1679, 0.0113, 0.8208;
+    ( 0, 1 ) 0.3184, 0.4909, 0.1907;
+    ( 0, 2 ) 0.2541, 0.1366, 0.6093;
+    ( 1, 0 ) 0.3645, 0.2584, 0.3771;
+    ( 1, 1 ) 0.4227, 0.2892, 0.2882;
+    ( 1, 2 ) 0.7902, 0.1561, 0.0537;
+
+}
+probability ( Class_Type ) {
+    table 0.0792, 0.2684, 0.6524 ;
+}
+probability ( Distance | Class, Venues ) {
+    ( 0, 0 ) 0.5222, 0.2298, 0.248;
+    ( 0, 1 ) 0.0798, 0.4689, 0.4513;
+    ( 0, 2 ) 0.1399, 0.5763, 0.2837;
+    ( 1, 0 ) 0.585, 0.3387, 0.0763;
+    ( 1, 1 ) 0.3688, 0.434, 0.1973;
+    ( 1, 2 ) 0.3633, 0.2415, 0.3952;
+    ( 2, 0 ) 0.3715, 0.2357, 0.3927;
+    ( 2, 1 ) 0.3069, 0.5972, 0.0959;
+    ( 2, 2 ) 0.2281, 0.5765, 0.1954;
+
+}
+probability ( Num_students ) {
+    table 0.7113, 0.2887 ;
+}
+probability ( Venue | Distance ) {
+    ( 0 ) 0.4838, 0.1702, 0.346;
+    ( 1 ) 0.3781, 0.3511, 0.2708;
+    ( 2 ) 0.4993, 0.4791, 0.0216;
+
+}
+probability ( Venue_Size ) {
+    table 0.5576, 0.4424 ;
+}
+probability ( Venue_Type ) {
+    table 0.3166, 0.087, 0.5964 ;
+}
+probability ( Venues | Venue_Type, Venue_Size ) {
+    ( 0, 0 ) 0.53, 0.243, 0.227;
+    ( 0, 1 ) 0.5808, 0.0915, 0.3277;
+    ( 1, 0 ) 0.4395, 0.21, 0.3505;
+    ( 1, 1 ) 0.5296, 0.4643, 0.0061;
+    ( 2, 0 ) 0.346, 0.3214, 0.3326;
+    ( 2, 1 ) 0.5094, 0.208, 0.2826;
+
+}

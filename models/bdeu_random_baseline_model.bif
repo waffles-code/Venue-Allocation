@@ -1,0 +1,61 @@
+network unknown {
+}
+variable Class {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Class_Type {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Distance {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Num_students {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable Venue {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Venue_Size {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable Venue_Type {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Venues {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+probability ( Class ) {
+    table 0.3492063492063492, 0.27301587301587305, 0.37777777777777777 ;
+}
+probability ( Class_Type ) {
+    table 0.41587301587301584, 0.09206349206349206, 0.49206349206349204 ;
+}
+probability ( Distance ) {
+    table 0.19682539682539685, 0.37777777777777777, 0.4253968253968254 ;
+}
+probability ( Num_students | Class ) {
+    ( 0 ) 0.8681818181818182, 0.1318181818181818;
+    ( 1 ) 0.48255813953488375, 0.5174418604651163;
+    ( 2 ) 0.6764705882352942, 0.3235294117647059;
+
+}
+probability ( Venue ) {
+    table 0.3492063492063492, 0.1873015873015873, 0.46349206349206346 ;
+}
+probability ( Venue_Size ) {
+    table 0.8714285714285714, 0.12857142857142856 ;
+}
+probability ( Venue_Type ) {
+    table 0.13968253968253969, 0.4253968253968254, 0.4349206349206349 ;
+}
+probability ( Venues ) {
+    table 0.45396825396825397, 0.17777777777777778, 0.3682539682539682 ;
+}
